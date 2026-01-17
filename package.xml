@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>openarm_teleop</name>
+  <version>0.0.1</version>
+  <description>Teleoperation and control utilities for OpenArm</description>
+  <maintainer email="openarm_dev@enactic.ai">Enactic, Inc.</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>openarm_can</depend>
+  <depend>orocos_kdl_vendor</depend>
+  <depend>kdl_parser</depend>
+  <depend>urdfdom</depend>
+  <depend>urdfdom_headers</depend>
+  <depend>yaml-cpp</depend>
+  <depend>eigen</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
