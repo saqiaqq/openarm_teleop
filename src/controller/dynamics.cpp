@@ -68,14 +68,14 @@ bool Dynamics::Init() {
 void Dynamics::GetGravity(const double *motor_position, double *gravity) {
     const auto njoints = kdl_chain.getNrOfJoints();
 
-    KDL::JntArray q_(kdl_chain.getNrOfJoints());
+    KDL::JntArray q_(njoints);
 
-    for (size_t i = 0; i < kdl_chain.getNrOfJoints(); i++) {
+    for (size_t i = 0; i < njoints; i++) {
         q_(i) = motor_position[i];
     }
 
     solver->JntToGravity(q_, gravity_forces);
-    for (size_t i = 0; i < kdl_chain.getNrOfJoints(); i++) {
+    for (size_t i = 0; i < njoints; i++) {
         gravity[i] = gravity_forces(i);
     }
 }

@@ -53,9 +53,8 @@ protected:
         control_l_->bilateral_step();
 
         auto now = std::chrono::steady_clock::now();
-
-        auto elapsed_us =
-            std::chrono::duration_cast<std::chrono::microseconds>(now - prev_time).count();
+        // auto elapsed_us =
+        //     std::chrono::duration_cast<std::chrono::microseconds>(now - prev_time).count();
         prev_time = now;
 
         // std::cout << "[Leader] Period: " << elapsed_us << " us" << std::endl;
@@ -83,9 +82,8 @@ protected:
         control_f_->bilateral_step();
 
         auto now = std::chrono::steady_clock::now();
-
-        auto elapsed_us =
-            std::chrono::duration_cast<std::chrono::microseconds>(now - prev_time).count();
+        // auto elapsed_us =
+        //     std::chrono::duration_cast<std::chrono::microseconds>(now - prev_time).count();
         prev_time = now;
 
         // std::cout << "[Follower] Period: " << elapsed_us << " us" << std::endl;
@@ -130,8 +128,8 @@ protected:
         follower_state_->arm_state().set_all_references(leader_arm_resp);
         follower_state_->hand_state().set_all_references(leader_hand_resp);
 
-        auto elapsed_us =
-            std::chrono::duration_cast<std::chrono::microseconds>(now - prev_time).count();
+        // auto elapsed_us =
+        //     std::chrono::duration_cast<std::chrono::microseconds>(now - prev_time).count();
         prev_time = now;
 
         // std::cout << "[Admin] Period: " << elapsed_us << " us" << std::endl;

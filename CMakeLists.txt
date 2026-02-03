@@ -68,12 +68,17 @@ target_link_libraries(bilateral_control PRIVATE openarm_teleop_lib)
 # Install
 install(TARGETS
   openarm_teleop_lib
+  EXPORT openarm_teleop_targets
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS
   gravity_comp
   comm_test
   unilateral_control
   bilateral_control
-  ARCHIVE DESTINATION lib
-  LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -81,6 +86,9 @@ install(DIRECTORY src/
   DESTINATION include
   FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h"
 )
+
+ament_export_targets(openarm_teleop_targets HAS_LIBRARY_TARGET)
+ament_export_dependencies(OpenArmCAN orocos_kdl kdl_parser Eigen3 urdfdom yaml-cpp)
 
 install(PROGRAMS
   script/launch_bilateral.sh
